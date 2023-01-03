@@ -1,22 +1,15 @@
 import React from "react";
-
-import "./App.css";
+import { ScheduleTable } from "./components/ScheduleTable";
+import { useSeasonSchedule } from "./hooks/useSeasonSchedule";
 
 function App() {
+  const query = useSeasonSchedule();
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ScheduleTable />
+        {query.data?.map((data) => data.awayTeam.score)}
       </header>
     </div>
   );
