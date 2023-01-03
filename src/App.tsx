@@ -9,7 +9,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <ScheduleTable />
-        {query.data?.map((data) => data.awayTeam.score)}
       </header>
     </div>
   );

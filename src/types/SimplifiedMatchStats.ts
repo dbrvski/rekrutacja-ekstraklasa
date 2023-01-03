@@ -1,15 +1,17 @@
 export interface SimplifiedMatchStats {
-  homeTeam: {
-    name: string;
-    score: number;
-  };
-  awayTeam: {
-    name: string;
-    score: number;
-  };
+  homeTeam: Team;
+  awayTeam: Team;
+  scoreHt?: string;
   teamNames: string;
   score: string;
   startTime: Date;
   venueName: string;
   sportEventId: string;
+}
+
+export interface Team {
+  name: string;
+  score: number;
+  winner: boolean;
+  draw?: boolean;
 }
