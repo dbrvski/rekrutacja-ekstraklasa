@@ -1,5 +1,5 @@
 export interface SeasonSchedule {
-  generated_at: Date;
+  generated_at: string;
   schedules: Schedule[];
 }
 
