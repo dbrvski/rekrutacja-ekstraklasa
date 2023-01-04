@@ -1,4 +1,3 @@
-import React from "react";
 import { format } from "date-fns";
 
 interface DateProps {
@@ -7,9 +6,9 @@ interface DateProps {
 
 export const DateElement = ({ date }: DateProps) => {
   return (
-    <div style={{ display: "flex", gap: "5px" }}>
+    <div className="d-flex gap-2">
       <span>{format(new Date(date), "d.MM.yyy")}</span>
-      <span style={{ color: "red" }}>{format(new Date(date), "H:mm")}</span>
+      <span className="text-primary">{format(new Date(date), "H:mm")}</span>
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import React from "react";
 import { Team } from "../../types/SimplifiedMatchStats";
+import cs from "classnames";
 interface TeamNameProps {
   team: Team;
 }
@@ -7,9 +7,11 @@ interface TeamNameProps {
 export const TeamName = ({ team }: TeamNameProps) => {
   return (
     <div
-      style={{
-        backgroundColor: team.draw ? "orange" : team.winner ? "green" : "red",
-      }}
+      className={cs(
+        { "text-warning": team.draw },
+        { "text-success": team.winner },
+        { "text-danger": !team.winner && !team.draw }
+      )}
     >
       {team.name}
     </div>

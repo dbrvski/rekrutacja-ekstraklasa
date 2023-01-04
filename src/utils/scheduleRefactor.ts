@@ -3,8 +3,8 @@ import { SimplifiedMatchStats } from "../types/SimplifiedMatchStats";
 
 export const scheduleRefactor = (
   data: SeasonSchedule
-): SimplifiedMatchStats[] =>
-  data.schedules.map((schedule) => {
+): SimplifiedMatchStats[] => {
+  return data.schedules.map((schedule) => {
     const homeTeam = schedule.sport_event.competitors[0].name;
     const awayTeam = schedule.sport_event.competitors[1].name;
     const awayTeamScore = schedule.sport_event_status.away_score;
@@ -13,6 +13,7 @@ export const scheduleRefactor = (
     const venueName = schedule.sport_event.venue.name;
     const sportEventId = schedule.sport_event.id;
     const scoreHt = `${schedule.sport_event_status?.period_scores?.[0].home_score} - ${schedule.sport_event_status?.period_scores?.[0].away_score}`;
+    const postponed = schedule.sport_event_status.status === "postponed";
     return {
       homeTeam: {
         name: homeTeam,
@@ -32,5 +33,7 @@ export const scheduleRefactor = (
       startTime,
       venueName,
       sportEventId,
+      postponed,
     };
   });
+};

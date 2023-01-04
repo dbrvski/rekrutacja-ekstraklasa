@@ -7,6 +7,7 @@ export interface SimplifiedMatchStats {
   startTime: Date;
   venueName: string;
   sportEventId: string;
+  postponed: boolean;
 }
 
 export interface Team {
